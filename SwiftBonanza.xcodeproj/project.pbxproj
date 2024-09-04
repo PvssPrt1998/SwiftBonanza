@@ -62,12 +62,12 @@
 		99E171492C8837630074901D /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171482C8837630074901D /* TrieNode.swift */; };
 		99E1714B2C8866040074901D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1714A2C8866040074901D /* ImageView.swift */; };
 		99E1714D2C88661F0074901D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1714C2C88661F0074901D /* ImagePicker.swift */; };
-		99E171512C8879D80074901D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 99E171502C8879D80074901D /* FirebaseDatabase */; };
 		99E171532C887FFF0074901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E171522C887FFF0074901D /* GoogleService-Info.plist */; };
+		A3E11020786D306F4E2E8FB9 /* Pods_SwiftBonanza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E82C3A45D3558AA08F0BE9B8 /* Pods_SwiftBonanza.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		99228BE62C7C60BA009A3C2F /* SwiftBonanza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBonanza.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FE8280E4E7AEFCE7D32D1CD /* Pods-SwiftBonanza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBonanza.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBonanza/Pods-SwiftBonanza.debug.xcconfig"; sourceTree = "<group>"; };
 		99228BE92C7C60BA009A3C2F /* SwiftBonanzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBonanzaApp.swift; sourceTree = "<group>"; };
 		99228BED2C7C60BC009A3C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99228BF02C7C60BC009A3C2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -124,6 +124,9 @@
 		99E1714A2C8866040074901D /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		99E1714C2C88661F0074901D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		99E171522C887FFF0074901D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99E1715A2C88B7CF0074901D /* SwiftBonanza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBonanza.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7F97FD3C91091AF62609589 /* Pods-SwiftBonanza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBonanza.release.xcconfig"; path = "Target Support Files/Pods-SwiftBonanza/Pods-SwiftBonanza.release.xcconfig"; sourceTree = "<group>"; };
+		E82C3A45D3558AA08F0BE9B8 /* Pods_SwiftBonanza.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBonanza.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,28 +134,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99E171512C8879D80074901D /* FirebaseDatabase in Frameworks */,
+				A3E11020786D306F4E2E8FB9 /* Pods_SwiftBonanza.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD26005DAADBEB03C17D187 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0FE8280E4E7AEFCE7D32D1CD /* Pods-SwiftBonanza.debug.xcconfig */,
+				E7F97FD3C91091AF62609589 /* Pods-SwiftBonanza.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		99228BDD2C7C60BA009A3C2F = {
 			isa = PBXGroup;
 			children = (
 				99228BE82C7C60BA009A3C2F /* SwiftBonanza */,
-				99228BE72C7C60BA009A3C2F /* Products */,
-				99E1714F2C8879D80074901D /* Frameworks */,
+				0AD26005DAADBEB03C17D187 /* Pods */,
+				C12D790E124D12FABD43EA87 /* Frameworks */,
+				99E1715A2C88B7CF0074901D /* SwiftBonanza.app */,
 			);
-			sourceTree = "<group>";
-		};
-		99228BE72C7C60BA009A3C2F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				99228BE62C7C60BA009A3C2F /* SwiftBonanza.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		99228BE82C7C60BA009A3C2F /* SwiftBonanza */ = {
@@ -338,9 +343,10 @@
 			path = Trie;
 			sourceTree = "<group>";
 		};
-		99E1714F2C8879D80074901D /* Frameworks */ = {
+		C12D790E124D12FABD43EA87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E82C3A45D3558AA08F0BE9B8 /* Pods_SwiftBonanza.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -352,20 +358,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99228BF42C7C60BC009A3C2F /* Build configuration list for PBXNativeTarget "SwiftBonanza" */;
 			buildPhases = (
+				0087ED943D6E54A5BC8AE015 /* [CP] Check Pods Manifest.lock */,
 				99228BE22C7C60BA009A3C2F /* Sources */,
 				99228BE32C7C60BA009A3C2F /* Frameworks */,
 				99228BE42C7C60BA009A3C2F /* Resources */,
+				8600C7BBCA2667B0984CA5D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwiftBonanza;
-			packageProductDependencies = (
-				99E171502C8879D80074901D /* FirebaseDatabase */,
-			);
 			productName = SwiftBonanza;
-			productReference = 99228BE62C7C60BA009A3C2F /* SwiftBonanza.app */;
+			productReference = 99E1715A2C88B7CF0074901D /* SwiftBonanza.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -392,10 +397,7 @@
 				Base,
 			);
 			mainGroup = 99228BDD2C7C60BA009A3C2F;
-			packageReferences = (
-				99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
-			productRefGroup = 99228BE72C7C60BA009A3C2F /* Products */;
+			productRefGroup = 99228BDD2C7C60BA009A3C2F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -416,6 +418,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0087ED943D6E54A5BC8AE015 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftBonanza-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8600C7BBCA2667B0984CA5D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBonanza/Pods-SwiftBonanza-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBonanza/Pods-SwiftBonanza-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftBonanza/Pods-SwiftBonanza-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99228BE22C7C60BA009A3C2F /* Sources */ = {
@@ -518,7 +562,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -581,7 +625,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -602,6 +646,7 @@
 		};
 		99228BF52C7C60BC009A3C2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FE8280E4E7AEFCE7D32D1CD /* Pods-SwiftBonanza.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -636,6 +681,7 @@
 		};
 		99228BF62C7C60BC009A3C2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7F97FD3C91091AF62609589 /* Pods-SwiftBonanza.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -690,25 +736,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		99E171502C8879D80074901D /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		99228C332C7E2BE6009A3C2F /* RadioDataModel.xcdatamodeld */ = {

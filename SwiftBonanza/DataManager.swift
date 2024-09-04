@@ -70,7 +70,8 @@ final class DataManager: ObservableObject {
     
     func loadDataFromFirebase(completion: @escaping () -> Void) {
         loadLinkFromFirebase { [weak self] in
-            self?.loadPolicyFromFirebase {
+            
+            self?.loadPolicyFromFirebase { [weak self] in
                 completion()
             }
         }
@@ -253,7 +254,7 @@ final class DataManager: ObservableObject {
             albums[historyIndex].wavesIdArray.insert(id)
             localStorage.save(album: albums[historyIndex])
         }
-            
+        
         play()
     }
     

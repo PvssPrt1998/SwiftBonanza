@@ -41,7 +41,7 @@ struct HomeView: View {
                                 }
                         }
                     }
-                }
+                }///
                 
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
