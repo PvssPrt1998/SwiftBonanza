@@ -35,6 +35,8 @@ struct FavouritesView: View {
                     }
                 } label: {
                     ZStack {
+                        Image(ImageTitles.favourite.rawValue)
+                            .resizable()
                         TextCustom(text: "Favourites", size: 17, weight: .semibold, color: .white)
                             .padding(EdgeInsets(top: 19, leading: 18, bottom: 19, trailing: 18))
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
