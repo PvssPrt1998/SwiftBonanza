@@ -83,13 +83,13 @@ struct SettingsView: View {
             if showPrivacy {
                 SettingsWebView(action: {
                     showPrivacy = false
-                }, url: "https://www.google.com/")
+                }, url: "https://www.termsfeed.com/live/96f07d25-f981-4354-ac47-17078ab719a3")
             }
         }
     }
     
     func actionSheet() {
-        guard let urlShare = URL(string: "https://apps.apple.com/app/pitcrew-kart-tracker/id6557075909") else { return }
+        guard let urlShare = URL(string: "https://apps.apple.com/app/swiit-bronanza/id6670452639") else { return }
         let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }

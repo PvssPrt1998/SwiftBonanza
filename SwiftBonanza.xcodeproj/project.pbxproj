@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		99228BEA2C7C60BA009A3C2F /* SwiftBonanzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BE92C7C60BA009A3C2F /* SwiftBonanzaApp.swift */; };
-		99228BEC2C7C60BA009A3C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BEB2C7C60BA009A3C2F /* ContentView.swift */; };
 		99228BEE2C7C60BC009A3C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99228BED2C7C60BC009A3C2F /* Assets.xcassets */; };
 		99228BF12C7C60BC009A3C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99228BF02C7C60BC009A3C2F /* Preview Assets.xcassets */; };
 		99228BF82C7C60FD009A3C2F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BF72C7C60FD009A3C2F /* Coordinator.swift */; };
@@ -55,12 +54,21 @@
 		99E171382C86ADD80074901D /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171372C86ADD80074901D /* Album.swift */; };
 		99E1713A2C86B7820074901D /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171392C86B7820074901D /* FavouriteViewModel.swift */; };
 		99E1713C2C86B88D0074901D /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1713B2C86B88D0074901D /* AlbumView.swift */; };
+		99E1713E2C87388E0074901D /* AlbumAddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1713D2C87388E0074901D /* AlbumAddListView.swift */; };
+		99E171402C8739520074901D /* AlbumWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1713F2C8739520074901D /* AlbumWave.swift */; };
+		99E171422C874D010074901D /* ExpandableAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171412C874D010074901D /* ExpandableAlbumView.swift */; };
+		99E171442C874FB70074901D /* ExpandedViewWaveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171432C874FB70074901D /* ExpandedViewWaveElement.swift */; };
+		99E171472C8837560074901D /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171462C8837560074901D /* Trie.swift */; };
+		99E171492C8837630074901D /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171482C8837630074901D /* TrieNode.swift */; };
+		99E1714B2C8866040074901D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1714A2C8866040074901D /* ImageView.swift */; };
+		99E1714D2C88661F0074901D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E1714C2C88661F0074901D /* ImagePicker.swift */; };
+		99E171512C8879D80074901D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 99E171502C8879D80074901D /* FirebaseDatabase */; };
+		99E171532C887FFF0074901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E171522C887FFF0074901D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99228BE62C7C60BA009A3C2F /* SwiftBonanza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBonanza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99228BE92C7C60BA009A3C2F /* SwiftBonanzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBonanzaApp.swift; sourceTree = "<group>"; };
-		99228BEB2C7C60BA009A3C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99228BED2C7C60BC009A3C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99228BF02C7C60BC009A3C2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99228BF72C7C60FD009A3C2F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -107,6 +115,15 @@
 		99E171372C86ADD80074901D /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		99E171392C86B7820074901D /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
 		99E1713B2C86B88D0074901D /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		99E1713D2C87388E0074901D /* AlbumAddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumAddListView.swift; sourceTree = "<group>"; };
+		99E1713F2C8739520074901D /* AlbumWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumWave.swift; sourceTree = "<group>"; };
+		99E171412C874D010074901D /* ExpandableAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableAlbumView.swift; sourceTree = "<group>"; };
+		99E171432C874FB70074901D /* ExpandedViewWaveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewWaveElement.swift; sourceTree = "<group>"; };
+		99E171462C8837560074901D /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
+		99E171482C8837630074901D /* TrieNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
+		99E1714A2C8866040074901D /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		99E1714C2C88661F0074901D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		99E171522C887FFF0074901D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E171512C8879D80074901D /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +143,7 @@
 			children = (
 				99228BE82C7C60BA009A3C2F /* SwiftBonanza */,
 				99228BE72C7C60BA009A3C2F /* Products */,
+				99E1714F2C8879D80074901D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,12 +158,13 @@
 		99228BE82C7C60BA009A3C2F /* SwiftBonanza */ = {
 			isa = PBXGroup;
 			children = (
+				99E171522C887FFF0074901D /* GoogleService-Info.plist */,
+				99E171452C8837350074901D /* Trie */,
 				99228C302C7E2B7C009A3C2F /* LocalStorage */,
 				99228C102C7CABB3009A3C2F /* Helpers */,
 				99228C032C7C820A009A3C2F /* Model */,
 				99228BF92C7C6101009A3C2F /* Views */,
 				99228BE92C7C60BA009A3C2F /* SwiftBonanzaApp.swift */,
-				99228BEB2C7C60BA009A3C2F /* ContentView.swift */,
 				99228BED2C7C60BC009A3C2F /* Assets.xcassets */,
 				99228BEF2C7C60BC009A3C2F /* Preview Content */,
 				99228BF72C7C60FD009A3C2F /* Coordinator.swift */,
@@ -228,6 +248,10 @@
 				99228C222C7CE48B009A3C2F /* FavouritesView.swift */,
 				99E171392C86B7820074901D /* FavouriteViewModel.swift */,
 				99E1713B2C86B88D0074901D /* AlbumView.swift */,
+				99E1713D2C87388E0074901D /* AlbumAddListView.swift */,
+				99E1713F2C8739520074901D /* AlbumWave.swift */,
+				99E171412C874D010074901D /* ExpandableAlbumView.swift */,
+				99E171432C874FB70074901D /* ExpandedViewWaveElement.swift */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -274,6 +298,8 @@
 				99228C2A2C7CEAC7009A3C2F /* SearchTextField.swift */,
 				99228C2E2C7E198E009A3C2F /* TextFieldCustom.swift */,
 				99E171282C85C8970074901D /* WebView.swift */,
+				99E1714A2C8866040074901D /* ImageView.swift */,
+				99E1714C2C88661F0074901D /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -303,6 +329,22 @@
 			path = StationView;
 			sourceTree = "<group>";
 		};
+		99E171452C8837350074901D /* Trie */ = {
+			isa = PBXGroup;
+			children = (
+				99E171462C8837560074901D /* Trie.swift */,
+				99E171482C8837630074901D /* TrieNode.swift */,
+			);
+			path = Trie;
+			sourceTree = "<group>";
+		};
+		99E1714F2C8879D80074901D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +361,9 @@
 			dependencies = (
 			);
 			name = SwiftBonanza;
+			packageProductDependencies = (
+				99E171502C8879D80074901D /* FirebaseDatabase */,
+			);
 			productName = SwiftBonanza;
 			productReference = 99228BE62C7C60BA009A3C2F /* SwiftBonanza.app */;
 			productType = "com.apple.product-type.application";
@@ -347,6 +392,9 @@
 				Base,
 			);
 			mainGroup = 99228BDD2C7C60BA009A3C2F;
+			packageReferences = (
+				99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 99228BE72C7C60BA009A3C2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +411,7 @@
 			files = (
 				99228BF12C7C60BC009A3C2F /* Preview Assets.xcassets in Resources */,
 				99228BEE2C7C60BC009A3C2F /* Assets.xcassets in Resources */,
+				99E171532C887FFF0074901D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,17 +426,21 @@
 				99228C292C7CE506009A3C2F /* ItemMainView.swift in Sources */,
 				99E1711D2C7F1A440074901D /* HomeViewModel.swift in Sources */,
 				99228C2D2C7DCFD9009A3C2F /* RadioWaveSmallView.swift in Sources */,
+				99E1714B2C8866040074901D /* ImageView.swift in Sources */,
+				99E171492C8837630074901D /* TrieNode.swift in Sources */,
 				99228C052C7C8218009A3C2F /* CounryCode.swift in Sources */,
+				99E171472C8837560074901D /* Trie.swift in Sources */,
 				99228C172C7CADE7009A3C2F /* TextCustom.swift in Sources */,
 				99228C072C7C8846009A3C2F /* DataManager.swift in Sources */,
 				99228C212C7CE474009A3C2F /* SettingsView.swift in Sources */,
 				99228C252C7CE49C009A3C2F /* RadioView.swift in Sources */,
-				99228BEC2C7C60BA009A3C2F /* ContentView.swift in Sources */,
 				99228BFB2C7C610C009A3C2F /* ViewModelFactory.swift in Sources */,
 				99228C0B2C7C8B78009A3C2F /* Country.swift in Sources */,
 				99228BEA2C7C60BA009A3C2F /* SwiftBonanzaApp.swift in Sources */,
 				99228C1D2C7CB7D0009A3C2F /* EnvironmentValues.swift in Sources */,
+				99E171402C8739520074901D /* AlbumWave.swift in Sources */,
 				99228C152C7CADD3009A3C2F /* ProgressViewCustom.swift in Sources */,
+				99E171442C874FB70074901D /* ExpandedViewWaveElement.swift in Sources */,
 				99E171302C85CAC50074901D /* StationViewModel.swift in Sources */,
 				99228C432C7E2D4C009A3C2F /* CoreDataStack.swift in Sources */,
 				99228C2F2C7E198E009A3C2F /* TextFieldCustom.swift in Sources */,
@@ -408,6 +461,8 @@
 				99E171322C862EE30074901D /* RadioViewModel.swift in Sources */,
 				99E1711A2C7E32080074901D /* GenreData+CoreDataClass.swift in Sources */,
 				99E1711B2C7E32080074901D /* GenreData+CoreDataProperties.swift in Sources */,
+				99E1713E2C87388E0074901D /* AlbumAddListView.swift in Sources */,
+				99E171422C874D010074901D /* ExpandableAlbumView.swift in Sources */,
 				99228C472C7E3095009A3C2F /* WaveData+CoreDataProperties.swift in Sources */,
 				99228C352C7E2BE6009A3C2F /* RadioDataModel.xcdatamodeld in Sources */,
 				99228C0F2C7CA600009A3C2F /* LoadingViewModel.swift in Sources */,
@@ -418,6 +473,7 @@
 				99E1713A2C86B7820074901D /* FavouriteViewModel.swift in Sources */,
 				99228C092C7C894F009A3C2F /* Station.swift in Sources */,
 				99228C0D2C7CA5F2009A3C2F /* LoadingView.swift in Sources */,
+				99E1714D2C88661F0074901D /* ImagePicker.swift in Sources */,
 				99E171272C85922F0074901D /* StationShort.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,7 +622,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nevermind.SwiftBonanza;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mak.sw1tbr0n4nza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -600,7 +656,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nevermind.SwiftBonanza;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mak.sw1tbr0n4nza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -634,6 +690,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99E171502C8879D80074901D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99E1714E2C8878470074901D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		99228C332C7E2BE6009A3C2F /* RadioDataModel.xcdatamodeld */ = {

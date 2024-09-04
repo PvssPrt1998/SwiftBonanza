@@ -54,7 +54,6 @@ struct StationView: View {
         .padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
         .background(Color.white)
         .onTapGesture {
-            print("lel")
             action()
         }
         .frame(maxHeight: .infinity, alignment: .bottom)

@@ -25,7 +25,9 @@ final class LoadingViewModel: ObservableObject {
     }
     
     func loadData() {
-        dataManager.loadData()
+        dataManager.loadDataFromFirebase { [weak self] in
+            self?.dataManager.loadData()
+        }
     }
     
     func stroke() {

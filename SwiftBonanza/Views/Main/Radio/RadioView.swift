@@ -4,7 +4,7 @@ struct RadioView: View {
     
     @ObservedObject var viewModel: RadioViewModel
     
-    @ObservedObject var imageLoader: ImageLoader
+    //@ObservedObject var imageLoader: ImageLoader
     @State var image: UIImage = UIImage()
     
     @State var searchText = ""
@@ -12,11 +12,6 @@ struct RadioView: View {
     init(viewModel: RadioViewModel) {
         self.viewModel = viewModel
         UISlider.appearance().tintColor = UIColor(Color.primaryPink)
-        if viewModel.isWaveSelected {
-            imageLoader = ImageLoader(urlString: viewModel.selectedWave!.imageUrl)
-        } else {
-            imageLoader = ImageLoader(urlString: "invalidUrl")
-        }
     }
     
     var similiarWaves: some View {
@@ -26,8 +21,12 @@ struct RadioView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 8) {
-                    ForEach(0..<20, id: \.self) { index in
-                        //RadioWaveSmallView(wave: <#WaveData#>)
+                    ForEach(viewModel.wavesByGenre(), id: \.self) { wave in
+                        RadioWaveSmallView(playing: viewModel.isPlaying(wave: wave), isFavourite: viewModel.isFavourite(wave: wave), wave: wave) {
+                            viewModel.setPlayingWave(id: wave.id)
+                        } addToFavouriteAction: {
+                            viewModel.addToFavourite(id: wave.id)
+                        }
                     }
                 }
                 .clipShape(.rect(cornerRadius: 16))
@@ -46,18 +45,41 @@ struct RadioView: View {
                     .frame(width: 29, height: 32)
             }
             .padding(.top, 3)
-            SearchTextField(text: $searchText, placeholder: "Search")
-                .foregroundColorCustom(.primaryPink)
+//            SearchTextField(text: $searchText, placeholder: "Search")
+//                .foregroundColorCustom(.primaryPink)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 15, trailing: 0))
             VStack {
-                if viewModel.isWaveSelected {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 246, height: 125)
-                        .onReceive(imageLoader.didChange) { data in
-                            self.image = UIImage(data: data) ?? UIImage()
+                if viewModel.selectedWave != nil {
+                    VStack(spacing: 0) {
+                        Image(uiImage: UIImage(data: viewModel.data) ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 246, height: 125)
+                        HStack {
+                            Button {
+                                viewModel.soundDisableButton()
+                            } label: {
+                                Image(systemName: viewModel.isSoundEnabled ? "speaker.wave.2.fill" : "speaker.slash.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColorCustom(.c138138142)
+                                    .frame(width: 24, height: 24)
+                            }
+                            TextCustom(text: viewModel.selectedWave!.title, size: 17, weight: .bold, color: .black)
+                                .lineLimit(1)
+                                .padding(10)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            Button {
+                                viewModel.favouriteButtonPressed()
+                            } label: {
+                                Image(systemName: viewModel.isSelectedFavourite() ? "folder.fill.badge.minus" : "folder.fill.badge.plus")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColorCustom(.c138138142)
+                                    .frame(width: 24, height: 24)
+                            }
                         }
+                    }
                 } else {
                     Image(systemName: "wave.3.forward")
                         .resizable()
@@ -71,7 +93,7 @@ struct RadioView: View {
             Slider(value: $viewModel.sliderValue)
             Divider()
                 .padding(.top, 8)
-            if viewModel.isWaveSelected {
+            if viewModel.selectedWave != nil {
                 similiarWaves
             }
         }

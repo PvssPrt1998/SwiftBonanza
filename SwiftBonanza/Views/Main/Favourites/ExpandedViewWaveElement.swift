@@ -1,24 +1,21 @@
 import SwiftUI
 
-struct RadioWaveSmallView: View {
-    
+struct ExpandedViewWaveElement: View {
     @ObservedObject var imageLoader: ImageLoader
     @State var image: UIImage = UIImage()
     
     @State var playPadding: CGFloat = 10
     
     let playing: Bool
-    let isFavourite: Bool
     let wave: StationShort
     let action: () -> Void
-    let addToFavouriteAction: () -> Void
+    let removeFromFavouriteAction: () -> Void
     
-    init(playing: Bool, isFavourite: Bool, wave: StationShort, action: @escaping () -> Void, addToFavouriteAction: @escaping () -> Void) {
+    init(playing: Bool, wave: StationShort, action: @escaping () -> Void, removeFromFavouriteAction: @escaping () -> Void) {
         self.playing = playing
-        self.isFavourite = isFavourite
         self.wave = wave
         self.action = action
-        self.addToFavouriteAction = addToFavouriteAction
+        self.removeFromFavouriteAction = removeFromFavouriteAction
         imageLoader = ImageLoader(urlString: wave.imageUrl)
     }
     
@@ -46,23 +43,23 @@ struct RadioWaveSmallView: View {
                 action()
             }
             .padding(9)
-            TextCustom(text: wave.title, size: 17, weight: .regular, color: .white)
+            TextCustom(text: wave.title, size: 17, weight: .regular, color: .specialSecondary)
                 .lineLimit(1)
                 .padding()
             Spacer()
             Button {
-                addToFavouriteAction()
+                removeFromFavouriteAction()
             } label: {
-                Image(systemName: isFavourite ? "minus" : "plus")
+                Image(systemName: "folder.fill.badge.minus")
                     .resizable()
                     .scaledToFit()
-                    .foregroundColorCustom(.white)
+                    .foregroundColorCustom(.primaryPink)
                     .frame(width: 24, height: 24)
             }
             .padding(9)
         }
         .padding(EdgeInsets(top: 3, leading: 4, bottom: 3, trailing: 4))
-        .background(Color.bgPink)
+        .background(Color.white)
         .clipShape(.rect(cornerRadius: 14))
     }
     
@@ -82,5 +79,5 @@ struct RadioWaveSmallView: View {
 }
 
 //#Preview {
-//    RadioWaveSmallView(wave: Wave)
+//    ExpandedViewWaveElement(isPlaying: true, wave: Sta, action: <#() -> Void#>)
 //}

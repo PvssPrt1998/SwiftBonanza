@@ -28,4 +28,12 @@ final class ViewModelFactory: ObservableObject {
     func makeFavouriteViewModel() -> FavouriteViewModel {
         FavouriteViewModel(dataManager: dataManager)
     }
+    
+    func makeAlbumAddListViewModel() -> AlbumAddListViewModel {
+        AlbumAddListViewModel(dataManager: dataManager)
+    }
+    
+    func makeExpandableAlbumViewModel() -> ExpandableAlbumViewModel {
+        ExpandableAlbumViewModel(dataManager: dataManager)
+    }
 }

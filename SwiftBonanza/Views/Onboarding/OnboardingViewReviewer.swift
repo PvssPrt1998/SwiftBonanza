@@ -5,6 +5,10 @@ struct OnboardingViewReviewer: View {
     
     let toNextScreen = PassthroughSubject<Bool, Never>()
     
+    var policy = "https://www.termsfeed.com/live/c913dca6-f3ca-4c46-b143-fab332db92b7"
+    
+    @State var showPolicy = false
+    
     private var backgroundsTitles = [
         ImageTitles.ReviewerOnboarding1.rawValue,
         ImageTitles.ReviewerOnboarding2.rawValue,
@@ -62,6 +66,26 @@ struct OnboardingViewReviewer: View {
             }
             .ignoresSafeArea()
         }
+        .onAppear {
+            showPolicy = true
+        }
+        .sheet(isPresented: $showPolicy, content: {
+            VStack {
+                Button {
+                    showPolicy = false
+                } label: {
+                    Text("agreed")
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                ZStack {
+                    WebView(viewModel: WebViewModel(), type: .public, url: policy)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            }
+            .padding([.horizontal, .top], 16)
+            .background(Color.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        })
     }
     
     private func nextButtonPressed() {

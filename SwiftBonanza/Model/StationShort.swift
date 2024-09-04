@@ -1,6 +1,6 @@
 import Foundation
 
-struct StationShort {
+struct StationShort: Hashable {
     var imageUrl: String
     var title: String
     var url: String

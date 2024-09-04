@@ -8,6 +8,10 @@ final class LocalStorage {
         coreDataStack.saveContext()
     }
     
+    func genreRequestId() {
+        
+    }
+    
     func createOrEditGenre(id: Int, name: String) -> GenreData? {
         var genreResult: GenreData?
         do {
@@ -109,11 +113,13 @@ final class LocalStorage {
             if let albumData = albums.first(where: {$0.title == album.title}) {
                 //edit
                 albumData.title = album.title
+                albumData.image = album.image
                 albumData.wavesIdArray = album.wavesIdArray.map({ id in Int32(id) })
             } else {
                 //create
                 let albumData = AlbumData(context: coreDataStack.managedContext)
                 albumData.title = album.title
+                albumData.image = album.image
                 albumData.wavesIdArray = album.wavesIdArray.map({ id in Int32(id) })
             }
             coreDataStack.saveContext()
@@ -126,7 +132,11 @@ final class LocalStorage {
         var albumsArray: Array<Album> = []
         let albumsData = try coreDataStack.managedContext.fetch(AlbumData.fetchRequest())
         albumsData.forEach { albumData in
-            albumsArray.append(Album(title: albumData.title, wavesIdArray: albumData.wavesIdArray.map({Int($0)})))
+            var idSet: Set<Int> = []
+            albumData.wavesIdArray.forEach { id in
+                idSet.insert(Int(id))
+            }
+            albumsArray.append(Album(image: albumData.image, title: albumData.title, wavesIdArray: idSet))
         }
         return albumsArray
     }

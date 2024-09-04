@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseDatabase
 import AVKit
 
 enum PlayerState {
@@ -11,6 +12,9 @@ final class DataManager: ObservableObject {
     let localStorage = LocalStorage()
     
     var player: AVPlayer?
+    
+    var policy: String?
+    var api: String?
 
     @Published var radioWaves: Dictionary<Int,StationShort> = [:]
     @Published var genres: Dictionary<Int,String> = [:]
@@ -32,7 +36,12 @@ final class DataManager: ObservableObject {
             guard let self = self else { return }
             
             if firstLaunch {
-                localStorage.save(album: Album(title: "Favourite", wavesIdArray: []))
+                if let image = UIImage(named: ImageTitles.favourite.rawValue)?.pngData() {
+                    localStorage.save(album: Album(image: image, title: "Favourite", wavesIdArray: []))
+                } else {
+                    localStorage.save(album: Album(title: "Favourite", wavesIdArray: []))
+                }
+                
                 localStorage.save(album: Album(title: "History", wavesIdArray: []))
                 firstLaunch = false
             }
@@ -57,11 +66,58 @@ final class DataManager: ObservableObject {
         }
     }
     
+    var ref: DatabaseReference!
+    
+    func loadDataFromFirebase(completion: @escaping () -> Void) {
+        loadLinkFromFirebase { [weak self] in
+            self?.loadPolicyFromFirebase {
+                completion()
+            }
+        }
+    }
+    
+    func loadPolicyFromFirebase(completion: @escaping () -> Void) {
+        ref = Database.database().reference()
+        ref.child("termsLink").observeSingleEvent(of: .value, with: { snapshot in
+          // Get user value
+          let value = snapshot.value as? String
+            if let value = value {
+                self.policy = value
+            }
+            completion()
+        }) { error in
+            completion()
+          print(error.localizedDescription)
+        }
+    }
+    
+    func loadLinkFromFirebase(completion: @escaping () -> Void) {
+        
+        ref = Database.database().reference()
+        ref.child("apiLink").observeSingleEvent(of: .value, with: { snapshot in
+          // Get user value
+          let value = snapshot.value as? String
+            if let value = value {
+                self.api = value
+            }
+            completion()
+        }) { error in
+            completion()
+          print(error.localizedDescription)
+        }
+    }
+    
+    func save(album: Album) {
+        localStorage.save(album: album)
+    }
+    
     func loadData() {
         loadLocalData { [weak self] in
             guard let self = self else { return }
-            if self.radioWaves.count < 60 {
+            if self.radioWaves.count < 30 {
                 self.loadRemote()
+            } else {
+                self.remoteLoaded = true
             }
         }
     }
@@ -84,7 +140,9 @@ final class DataManager: ObservableObject {
             "x-rapidapi-host": "50k-radio-stations.p.rapidapi.com"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://50k-radio-stations.p.rapidapi.com/get/channels?page=\(page)")! as URL)
+        var apiString = api ?? "https://50k-radio-stations.p.rapidapi.com/get/channels?page="
+        apiString += "\(page)"
+        let request = NSMutableURLRequest(url: NSURL(string: apiString)! as URL)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
 
@@ -117,7 +175,10 @@ final class DataManager: ObservableObject {
     func addToFavourite(id: Int) {
         guard let index = albums.firstIndex(where: {$0.title == "Favourite"}) else { return }
         if !albums[index].wavesIdArray.contains(id) {
-            albums[index].wavesIdArray.append(id)
+            albums[index].wavesIdArray.insert(id)
+            localStorage.save(album: albums[index])
+        } else {
+            albums[index].wavesIdArray.remove(id)
             localStorage.save(album: albums[index])
         }
         
@@ -126,13 +187,14 @@ final class DataManager: ObservableObject {
     func saveData(station: Station) { //TODO: -SAVE DATA PROBLEM
        station.data.forEach { data in
            if data.httpsURL.count > 0 {
-               if !isUrlIPType(urlStr: data.httpsURL[0].url) {
-                   print(data.httpsURL[0].url)
+               //print(data.httpsURL[0])
                    let genreArray: Array<Genre> = data.genre
                    var genreIds: Array<Int32> = []
                    var genreIdsInt: Array<Int> = []
                    genreArray.forEach { genre in
-                       localStorage.createOrEditGenre(id: genre.id, name: genre.name)
+                       if !self.genres.keys.contains(genre.id) {
+                           localStorage.createOrEditGenre(id: genre.id, name: genre.name)
+                       }
                        self.genres.updateValue(genre.name, forKey: genre.id)
                        genreIds.append(Int32(genre.id))
                        genreIdsInt.append(genre.id)
@@ -150,7 +212,6 @@ final class DataManager: ObservableObject {
                        radioWaves.updateValue(stationShort, forKey: stationShort.id)
                        localStorage.createWaveDataObject(station: stationShort)
                    }
-               }
            }
         }
         localStorage.saveContext()
@@ -185,10 +246,14 @@ final class DataManager: ObservableObject {
         guard let wave = radioWaves[id] else { return }
         playingWaveData = wave
         let url  = URL.init(string: wave.url)
-        print(url)
         guard let url = url else { return }
         let playerItem: AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
+        if let historyIndex = albums.firstIndex(where: {$0.title == "History"}) {
+            albums[historyIndex].wavesIdArray.insert(id)
+            localStorage.save(album: albums[historyIndex])
+        }
+            
         play()
     }
     
@@ -206,7 +271,6 @@ final class DataManager: ObservableObject {
     
     func deselectStation() {
         playingWaveData = nil
-        guard let player = player else { return }
         playerState = .pause
         self.player = nil
     }

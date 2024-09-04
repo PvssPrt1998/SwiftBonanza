@@ -6,4 +6,5 @@ enum ImageTitles: String {
     case ReviewerOnboarding2
     case ReviewerOnboarding3
     case BronanzaLogo
+    case favourite
 }

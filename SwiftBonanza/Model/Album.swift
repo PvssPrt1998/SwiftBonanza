@@ -1,6 +1,7 @@
 import Foundation
 
 struct Album: Hashable {
+    var image: Data?
     var title: String
-    var wavesIdArray: [Int]
+    var wavesIdArray: Set<Int>
 }
